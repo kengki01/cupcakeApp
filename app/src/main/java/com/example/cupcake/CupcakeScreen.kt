@@ -51,10 +51,29 @@ import com.example.cupcake.ui.OrderSummaryScreen
 import com.example.cupcake.ui.OrderViewModel
 import com.example.cupcake.ui.SelectOptionScreen
 import com.example.cupcake.ui.StartOrderScreen
+import androidx.compose.foundation.layout.padding
+
 
 /**
  * enum values that represent the screens in the app
  */
+enum class CupcakeScreen() {
+    Start,
+    Flavor,
+    Pickup,
+    Summary
+}
+
+NavHost(
+navController = navController,
+startDestination = CupcakeScreen.Start.name,
+modifier = Modifier.padding(innerPadding)
+) {
+    composable(route = CupcakeScreen.Start.name) {
+
+    }
+}
+
 enum class CupcakeScreen(@StringRes val title: Int) {
     Start(title = R.string.app_name),
     Flavor(title = R.string.choose_flavor),
